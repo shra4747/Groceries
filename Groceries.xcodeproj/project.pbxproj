@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */; };
-		DC8210AF28739A5500EB5A97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AE28739A5500EB5A97 /* ContentView.swift */; };
+		DC8210AF28739A5500EB5A97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AE28739A5500EB5A97 /* HomeView.swift */; };
 		DC8210B128739A5A00EB5A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC8210B028739A5A00EB5A97 /* Assets.xcassets */; };
 		DC8210B428739A5A00EB5A97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC8210B328739A5A00EB5A97 /* Preview Assets.xcassets */; };
 		DC8210BE28739A5A00EB5A97 /* GroceriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210BD28739A5A00EB5A97 /* GroceriesTests.swift */; };
@@ -23,6 +24,9 @@
 		DC8210E228739DBA00EB5A97 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DC8210E128739DBA00EB5A97 /* FirebaseFirestore */; };
 		DC8210E428739DBA00EB5A97 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DC8210E328739DBA00EB5A97 /* FirebaseFirestoreCombine-Community */; };
 		DC8210E628739DBA00EB5A97 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC8210E528739DBA00EB5A97 /* FirebaseFirestoreSwift */; };
+		DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
+		DC8210E928739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
+		DC8210EA28739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC4E36352874936E0078F9A3 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		DC8210A928739A5500EB5A97 /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesApp.swift; sourceTree = "<group>"; };
-		DC8210AE28739A5500EB5A97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC8210AE28739A5500EB5A97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DC8210B028739A5A00EB5A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC8210B328739A5A00EB5A97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC8210B928739A5A00EB5A97 /* GroceriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +59,7 @@
 		DC8210C728739A5A00EB5A97 /* GroceriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITests.swift; sourceTree = "<group>"; };
 		DC8210C928739A5A00EB5A97 /* GroceriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +118,9 @@
 			children = (
 				DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */,
 				DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */,
-				DC8210AE28739A5500EB5A97 /* ContentView.swift */,
+				DC8210AE28739A5500EB5A97 /* HomeView.swift */,
+				DC4E36352874936E0078F9A3 /* ItemModel.swift */,
+				DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */,
 				DC8210B028739A5A00EB5A97 /* Assets.xcassets */,
 				DC8210B228739A5A00EB5A97 /* Preview Content */,
 			);
@@ -288,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC8210AF28739A5500EB5A97 /* ContentView.swift in Sources */,
+				DC8210AF28739A5500EB5A97 /* HomeView.swift in Sources */,
+				DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
+				DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */,
 				DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8210E928739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
 				DC8210BE28739A5A00EB5A97 /* GroceriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8210CA28739A5A00EB5A97 /* GroceriesUITestsLaunchTests.swift in Sources */,
+				DC8210EA28739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
 				DC8210C828739A5A00EB5A97 /* GroceriesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
