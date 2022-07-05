@@ -9,40 +9,38 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var items: [ItemModel.Item] = [ItemModel.Item(id: UUID(), name: "grapes", amount: 1, container: "box", store: "ShopRite"), ItemModel.Item(id: UUID(), name: "oranges", amount: 1, container: "box", store: "Farmer's Market")]
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    Section("Shop Rite") {
-                        ForEach(items, id: \.self) { item in
-                            HStack {
-                                Text(item.name.capitalized)
-                                Spacer()
-                                HStack(spacing: 4) {
-                                    Text("\(item.amount)").bold()
-                                    Text(item.container)
-                                }.padding(.trailing, 5)
-                            }
-                        }
-                    }
-                    Section("Farmer's Market") {
-                        ForEach(items, id: \.self) { item in
-                            HStack {
-                                Text(item.name.capitalized)
-                                Spacer()
-                                HStack(spacing: 4) {
-                                    Text("\(item.amount)").bold()
-                                    Text(item.container)
-                                }.padding(.trailing, 5)
+                    ForEach(viewModel.itemReturnables) { store in
+                        Section(store.storeName) {
+                            ForEach(store.items, id: \.self) { grocery in
+                                var isClicked = false
+                                HStack {
+                                    HStack {
+                                        Button(action: {
+                                            isClicked.toggle()
+                                        }) {
+                                            Image(systemName: isClicked ? "checkmark.circle" : "circle").frame(width: 8, height: 8)
+                                        }
+                                        Text(grocery.name.capitalized)
+                                    }
+                                    Spacer()
+                                    HStack(spacing: 4) {
+                                        Text("\(grocery.amount)").bold()
+                                        Text(grocery.container)
+                                    }.padding(.trailing, 5)
+                                }
                             }
                         }
                     }
                 }
                 
             }
-            .navigationBarTitle("\(items.count) Items")
+            .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Button(action: {
 
             }) {
@@ -50,12 +48,7 @@ struct HomeView: View {
             })
         }
         .onAppear {
-            FirebaseExtension().readData { returnable in
-                for store in returnable {
-                    print(store.store)
-                    print(store.items)
-                }
-            }
+            viewModel.loadGroceries()
         }
     }
 }

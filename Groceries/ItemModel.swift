@@ -12,7 +12,7 @@ struct ItemModel: Codable, Hashable, Identifiable {
     
     struct ItemReturnable: Codable, Hashable, Identifiable {
         let id: UUID
-        let store: String
+        let storeName: String
         let items: [Item]
     }
     

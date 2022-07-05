@@ -61,7 +61,7 @@ class FirebaseExtension {
                 groceryItems.append(ItemModel.Item(id: UUID(), name: name, amount: amount, container: container, store: store))
             }
             
-            itemReturnable.append(ItemModel.ItemReturnable(id: UUID(), store: "\(store)", items: groceryItems))
+            itemReturnable.append(ItemModel.ItemReturnable(id: UUID(), storeName: "\(store)", items: groceryItems))
             
         }
         return itemReturnable
