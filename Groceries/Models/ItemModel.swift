@@ -18,7 +18,7 @@ struct ItemModel: Codable, Hashable, Identifiable {
     
     let id: UUID
     struct Item: Codable, Hashable, Identifiable {
-        let id: UUID
+        let id: String
         let name: String
         let amount: Int
         let container: String

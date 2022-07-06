@@ -48,7 +48,8 @@ struct HomeView: View {
             }
             .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Button(action: {
-
+                FirebaseExtension().storeData()
+                viewModel.loadGroceries()
             }) {
                 Text("+").font(.largeTitle)
             })

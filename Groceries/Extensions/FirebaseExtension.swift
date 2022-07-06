@@ -14,12 +14,12 @@ import DeviceCheck
 
 class FirebaseExtension {
     func storeData() {
-        let items: [ItemModel.Item] = [ItemModel.Item(id: UUID(), name: "Oreos", amount: 1, container: "box", store: "ShopRite"), ItemModel.Item(id: UUID(), name: "Shredded Cheese", amount: 1, container: "bag", store: "ShopRite"), ItemModel.Item(id: UUID(), name: "Lettuce", amount: 1, container: "", store: "Farmer's Market"), ItemModel.Item(id: UUID(), name: "Onions", amount: 1, container: "bag", store: "Farmer's Market")]
-        
+        let items: [ItemModel.Item] = [ItemModel.Item(id: UUID().uuidString, name: "Oreos", amount: 1, container: "box", store: "ShopRite"), ItemModel.Item(id: UUID().uuidString, name: "Shredded Cheese", amount: 1, container: "bag", store: "ShopRite"), ItemModel.Item(id: UUID().uuidString, name: "Lettuce", amount: 1, container: "", store: "Farmer's Market"), ItemModel.Item(id: UUID().uuidString, name: "Onions", amount: 1, container: "bag", store: "Farmer's Market")]
+
         var ref: DatabaseReference!
-        
+
         ref = Database.database().reference()
-        
+
         for item in items {
             print(item)
             ref.child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
@@ -54,16 +54,30 @@ class FirebaseExtension {
             
             for item in (groceryData[store] as? Dictionary ?? [:]).keys {
                 let grocery = (groceryData[store] as? Dictionary ?? [:])[item] as! Dictionary<String, Any>
+                let id = item as! String
                 let name = grocery["name"] as? String ?? ""
                 let amount = grocery["amount"] as? Int ?? 0
                 let container = grocery["container"] as? String ?? ""
                 let store = grocery["store"] as? String ?? ""
-                groceryItems.append(ItemModel.Item(id: UUID(), name: name, amount: amount, container: container, store: store))
+                groceryItems.append(ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store))
             }
             
             itemReturnable.append(ItemModel.ItemReturnable(id: UUID(), storeName: "\(store)", items: groceryItems))
             
         }
         return itemReturnable
+    }
+    
+    func delete(this grocery: ItemModel.Item) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        print("\(grocery.store)")
+        print("\(grocery.id)")
+        ref.child("stores").child("\(grocery.store)").child("\(grocery.id)").removeValue { error, _ in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        }
     }
 }

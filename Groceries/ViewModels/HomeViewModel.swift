@@ -13,6 +13,8 @@ class HomeViewModel: ObservableObject {
     @Published var itemCount = 0
     
     func loadGroceries() {
+        self.itemReturnables = []
+        self.itemCount = 0
         FirebaseExtension().readData { returnables in
             self.itemReturnables = returnables
             self.getItemCount()
@@ -36,7 +38,7 @@ class HomeViewModel: ObservableObject {
                 }
             }
         }
-        
+        FirebaseExtension().delete(this: grocery)
         self.itemCount -= 1
     }
 }
