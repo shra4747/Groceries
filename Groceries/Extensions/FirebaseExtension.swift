@@ -68,6 +68,32 @@ class FirebaseExtension {
         return itemReturnable
     }
     
+    func loadStores(completion: @escaping ([String]) -> Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("storeList").getData(completion: { error, snapshot in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            let groceryData = (snapshot?.value as? Dictionary ?? [:])
+            var storesArray: [String] = []
+            for key in groceryData.keys {
+                storesArray.append("\(key)")
+            }
+            completion(storesArray)
+        })
+    }
+    
+    func add(store: String) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("storeList").updateChildValues([store: "\(UUID())"])
+    }
+    
+    
     func delete(this grocery: ItemModel.Item) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -76,7 +102,7 @@ class FirebaseExtension {
         print("\(grocery.id)")
         ref.child("stores").child("\(grocery.store)").child("\(grocery.id)").removeValue { error, _ in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             }
         }
     }
