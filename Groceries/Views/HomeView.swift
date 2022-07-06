@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
-    
+    @State var addingNewGrocery = false
     var body: some View {
         NavigationView {
             VStack {
@@ -46,10 +46,12 @@ struct HomeView: View {
                 }
                 
             }
+            .sheet(isPresented: $addingNewGrocery, content: {
+                AddGroceryView()
+            })
             .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Button(action: {
-                FirebaseExtension().storeData()
-                viewModel.loadGroceries()
+                addingNewGrocery.toggle()
             }) {
                 Text("+").font(.largeTitle)
             })

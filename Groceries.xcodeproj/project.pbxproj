@@ -10,6 +10,9 @@
 		DC05425D287555C300286169 /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05425C287555C300286169 /* CheckmarkButton.swift */; };
 		DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
+		DC51E26D2875E85400C1800D /* AddGroceryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51E26C2875E85400C1800D /* AddGroceryView.swift */; };
+		DC51E26F2875E86300C1800D /* AddGroceryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */; };
+		DC51E272287604FA00C1800D /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = DC51E271287604FA00C1800D /* Introspect */; };
 		DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */; };
 		DC8210AF28739A5500EB5A97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AE28739A5500EB5A97 /* HomeView.swift */; };
 		DC8210B128739A5A00EB5A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC8210B028739A5A00EB5A97 /* Assets.xcassets */; };
@@ -52,6 +55,8 @@
 		DC05425C287555C300286169 /* CheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkButton.swift; sourceTree = "<group>"; };
 		DC4E36352874936E0078F9A3 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		DC4E3637287502190078F9A3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DC51E26C2875E85400C1800D /* AddGroceryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryView.swift; sourceTree = "<group>"; };
+		DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryViewModel.swift; sourceTree = "<group>"; };
 		DC8210A928739A5500EB5A97 /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesApp.swift; sourceTree = "<group>"; };
 		DC8210AE28739A5500EB5A97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 				DC8210E228739DBA00EB5A97 /* FirebaseFirestore in Frameworks */,
 				DC8210DE28739DBA00EB5A97 /* FirebaseDatabase in Frameworks */,
 				DC8210E428739DBA00EB5A97 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				DC51E272287604FA00C1800D /* Introspect in Frameworks */,
 				DC8210DC28739DBA00EB5A97 /* FirebaseAuth in Frameworks */,
 				DC8210E628739DBA00EB5A97 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -102,6 +108,7 @@
 			children = (
 				DC8210AE28739A5500EB5A97 /* HomeView.swift */,
 				DC05425C287555C300286169 /* CheckmarkButton.swift */,
+				DC51E26C2875E85400C1800D /* AddGroceryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				DC4E3637287502190078F9A3 /* HomeViewModel.swift */,
+				DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				DC8210E128739DBA00EB5A97 /* FirebaseFirestore */,
 				DC8210E328739DBA00EB5A97 /* FirebaseFirestoreCombine-Community */,
 				DC8210E528739DBA00EB5A97 /* FirebaseFirestoreSwift */,
+				DC51E271287604FA00C1800D /* Introspect */,
 			);
 			productName = Groceries;
 			productReference = DC8210A928739A5500EB5A97 /* Groceries.app */;
@@ -288,6 +297,7 @@
 			mainGroup = DC8210A028739A5500EB5A97;
 			packageReferences = (
 				DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DC51E270287604FA00C1800D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = DC8210AA28739A5500EB5A97 /* Products */;
 			projectDirPath = "";
@@ -338,7 +348,9 @@
 				DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
 				DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */,
 				DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */,
+				DC51E26F2875E86300C1800D /* AddGroceryViewModel.swift in Sources */,
 				DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */,
+				DC51E26D2875E85400C1800D /* AddGroceryView.swift in Sources */,
 				DC05425D287555C300286169 /* CheckmarkButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +680,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC51E270287604FA00C1800D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -679,6 +699,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC51E271287604FA00C1800D /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC51E270287604FA00C1800D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		DC8210DB28739DBA00EB5A97 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
