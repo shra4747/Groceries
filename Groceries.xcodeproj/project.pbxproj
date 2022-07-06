@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC05425D287555C300286169 /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05425C287555C300286169 /* CheckmarkButton.swift */; };
 		DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
 		DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC05425C287555C300286169 /* CheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkButton.swift; sourceTree = "<group>"; };
 		DC4E36352874936E0078F9A3 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		DC4E3637287502190078F9A3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DC8210A928739A5500EB5A97 /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC0542582875553600286169 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC8210AE28739A5500EB5A97 /* HomeView.swift */,
+				DC05425C287555C300286169 /* CheckmarkButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC0542592875553B00286169 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC4E36352874936E0078F9A3 /* ItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DC05425A2875554000286169 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DC4E3637287502190078F9A3 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DC05425B2875554400286169 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DC8210A028739A5500EB5A97 = {
 			isa = PBXGroup;
 			children = (
@@ -118,14 +153,14 @@
 		DC8210AB28739A5500EB5A97 /* Groceries */ = {
 			isa = PBXGroup;
 			children = (
-				DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */,
 				DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */,
-				DC8210AE28739A5500EB5A97 /* HomeView.swift */,
-				DC4E3637287502190078F9A3 /* HomeViewModel.swift */,
-				DC4E36352874936E0078F9A3 /* ItemModel.swift */,
-				DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */,
+				DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */,
 				DC8210B028739A5A00EB5A97 /* Assets.xcassets */,
 				DC8210B228739A5A00EB5A97 /* Preview Content */,
+				DC0542592875553B00286169 /* Models */,
+				DC0542582875553600286169 /* Views */,
+				DC05425A2875554000286169 /* ViewModels */,
+				DC05425B2875554400286169 /* Extensions */,
 			);
 			path = Groceries;
 			sourceTree = "<group>";
@@ -304,6 +339,7 @@
 				DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */,
 				DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */,
 				DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */,
+				DC05425D287555C300286169 /* CheckmarkButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

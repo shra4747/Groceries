@@ -24,4 +24,19 @@ class HomeViewModel: ObservableObject {
             itemCount += store.items.count
         }
     }
+    
+    func remove(this grocery: ItemModel.Item, at store: ItemModel.ItemReturnable) {
+        
+        for (d, r) in self.itemReturnables.enumerated() {
+            if r == store {
+                for (g, i) in r.items.enumerated() {
+                    if i == grocery {
+                        self.itemReturnables[d].items.remove(at: g)
+                    }
+                }
+            }
+        }
+        
+        self.itemCount -= 1
+    }
 }

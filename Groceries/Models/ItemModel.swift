@@ -13,7 +13,7 @@ struct ItemModel: Codable, Hashable, Identifiable {
     struct ItemReturnable: Codable, Hashable, Identifiable {
         let id: UUID
         let storeName: String
-        let items: [Item]
+        var items: [Item]
     }
     
     let id: UUID
