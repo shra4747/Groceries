@@ -10,34 +10,33 @@ import SwiftUI
 struct MainWatchView: View {
     
     @StateObject var viewModel = HomeViewModel()
-    
+    @State var chosenStore: ItemModel.ItemReturnable = ItemModel.ItemReturnable(id: UUID(), storeName: "Choose Store:", items: [])
+    @State var isChoosingStore = false
     var body: some View {
         NavigationView {
             VStack {
-                List {
+                NavigationLink(chosenStore.storeName, isActive: $isChoosingStore) {
                     ForEach(viewModel.itemReturnables, id: \.self) { store in
-                        NavigationLink(store.storeName) {
-                            List {
-                                ForEach(store.items, id: \.self) { grocery in
-                                    HStack {
-                                        CheckmarkButton(id: "\(grocery.id)", size: 14) { _, _ in
-                                            viewModel.remove(this: grocery, at: store)
-                                        }.foregroundColor(Color.white)
-                                        Text(grocery.name.capitalized).foregroundColor(.white)
-                                    }
-                                    Spacer()
-                                    HStack(spacing: 4) {
-                                        Text("\(grocery.amount)").bold().foregroundColor(.white)
-                                        Text(grocery.container).foregroundColor(.white)
-                                    }.padding(.trailing, 5)
-                                }
+                        Button(action: {
+                            chosenStore = store
+                            isChoosingStore.toggle()
+                        }) {
+                            HStack {
+                                Text(store.storeName)
+                                Spacer()
+                                Image(systemName: "chevron.left")
                             }
                         }
                     }
+                    Spacer()
                 }
+                if viewModel.itemReturnables.count > 0 {
+                    StoreDetailView(store: chosenStore, viewModel: viewModel)
+                }
+                Spacer()
             }.onAppear {
                 viewModel.loadGroceries()
-            }
+            }.navigationTitle("Stores").navigationBarTitleDisplayMode(.inline)
         }
     }
 }
