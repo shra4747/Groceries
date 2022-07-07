@@ -11,7 +11,6 @@
 		DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
 		DC51E26D2875E85400C1800D /* AddGroceryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51E26C2875E85400C1800D /* AddGroceryView.swift */; };
-		DC51E26F2875E86300C1800D /* AddGroceryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */; };
 		DC51E272287604FA00C1800D /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = DC51E271287604FA00C1800D /* Introspect */; };
 		DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */; };
 		DC8210AF28739A5500EB5A97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210AE28739A5500EB5A97 /* HomeView.swift */; };
@@ -56,7 +55,6 @@
 		DC4E36352874936E0078F9A3 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		DC4E3637287502190078F9A3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DC51E26C2875E85400C1800D /* AddGroceryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryView.swift; sourceTree = "<group>"; };
-		DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryViewModel.swift; sourceTree = "<group>"; };
 		DC8210A928739A5500EB5A97 /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesApp.swift; sourceTree = "<group>"; };
 		DC8210AE28739A5500EB5A97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				DC4E3637287502190078F9A3 /* HomeViewModel.swift */,
-				DC51E26E2875E86300C1800D /* AddGroceryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -348,7 +345,6 @@
 				DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
 				DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */,
 				DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */,
-				DC51E26F2875E86300C1800D /* AddGroceryViewModel.swift in Sources */,
 				DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */,
 				DC51E26D2875E85400C1800D /* AddGroceryView.swift in Sources */,
 				DC05425D287555C300286169 /* CheckmarkButton.swift in Sources */,

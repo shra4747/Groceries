@@ -18,8 +18,19 @@ class HomeViewModel: ObservableObject {
         FirebaseExtension().readData { returnables in
             self.itemReturnables = returnables
             self.getItemCount()
+            
+            self.sort()
         }
     }
+    
+    func sort() {
+        self.itemReturnables = self.itemReturnables.sorted(by: { $0.storeName.lowercased() < $1.storeName.lowercased()})
+        
+        for (i,_) in itemReturnables.enumerated() {
+            self.itemReturnables[i].items = self.itemReturnables[i].items.sorted(by: {$0.name.lowercased() < $1.name.lowercased() })
+        }
+    }
+    
     
     func getItemCount() {
         for store in itemReturnables {
@@ -40,5 +51,6 @@ class HomeViewModel: ObservableObject {
         }
         FirebaseExtension().delete(this: grocery)
         self.itemCount -= 1
+        self.sort()
     }
 }
