@@ -31,6 +31,26 @@
 		DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DC8210E928739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DC8210EA28739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
+		DCA91C132876B764008F25BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA91C122876B764008F25BE /* Assets.xcassets */; };
+		DCA91C192876B764008F25BE /* WatchGroceries WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C1D2876B764008F25BE /* GroceriesApp.swift */; };
+		DCA91C202876B764008F25BE /* MainWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C1F2876B764008F25BE /* MainWatchView.swift */; };
+		DCA91C222876B764008F25BE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C212876B764008F25BE /* NotificationController.swift */; };
+		DCA91C242876B764008F25BE /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C232876B764008F25BE /* NotificationView.swift */; };
+		DCA91C262876B764008F25BE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C252876B764008F25BE /* ComplicationController.swift */; };
+		DCA91C282876B766008F25BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA91C272876B766008F25BE /* Assets.xcassets */; };
+		DCA91C2B2876B766008F25BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA91C2A2876B766008F25BE /* Preview Assets.xcassets */; };
+		DCA91C302876B766008F25BE /* WatchGroceries.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DCA91C102876B762008F25BE /* WatchGroceries.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DCA91C3B2876B7D5008F25BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C3A2876B7D5008F25BE /* FirebaseAuth */; };
+		DCA91C3D2876B7D5008F25BE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C3C2876B7D5008F25BE /* FirebaseDatabase */; };
+		DCA91C3F2876B7D5008F25BE /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C3E2876B7D5008F25BE /* FirebaseDatabaseSwift */; };
+		DCA91C422876B83F008F25BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C412876B83F008F25BE /* FirebaseAuth */; };
+		DCA91C442876B843008F25BE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C432876B843008F25BE /* FirebaseDatabase */; };
+		DCA91C462876B846008F25BE /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C452876B846008F25BE /* FirebaseDatabaseSwift */; };
+		DCA91C472876B8FD008F25BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */; };
+		DCA91C482876B902008F25BE /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
+		DCA91C492876B907008F25BE /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
+		DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +68,46 @@
 			remoteGlobalIDString = DC8210A828739A5500EB5A97;
 			remoteInfo = Groceries;
 		};
+		DCA91C1A2876B764008F25BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC8210A128739A5500EB5A97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCA91C172876B764008F25BE;
+			remoteInfo = "WatchGroceries WatchKit Extension";
+		};
+		DCA91C2E2876B766008F25BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC8210A128739A5500EB5A97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCA91C0F2876B762008F25BE;
+			remoteInfo = WatchGroceries;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DCA91C312876B766008F25BE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DCA91C302876B766008F25BE /* WatchGroceries.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA91C342876B766008F25BE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DCA91C192876B764008F25BE /* WatchGroceries WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DC05425C287555C300286169 /* CheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkButton.swift; sourceTree = "<group>"; };
@@ -67,6 +126,18 @@
 		DC8210C928739A5A00EB5A97 /* GroceriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtension.swift; sourceTree = "<group>"; };
+		DCA91C102876B762008F25BE /* WatchGroceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchGroceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA91C122876B764008F25BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchGroceries WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA91C1D2876B764008F25BE /* GroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesApp.swift; sourceTree = "<group>"; };
+		DCA91C1F2876B764008F25BE /* MainWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchView.swift; sourceTree = "<group>"; };
+		DCA91C212876B764008F25BE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DCA91C232876B764008F25BE /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		DCA91C252876B764008F25BE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		DCA91C272876B766008F25BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCA91C2A2876B766008F25BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DCA91C2C2876B766008F25BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA91C2D2876B766008F25BE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +145,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA91C3F2876B7D5008F25BE /* FirebaseDatabaseSwift in Frameworks */,
 				DC8210E028739DBA00EB5A97 /* FirebaseDatabaseSwift in Frameworks */,
 				DC8210E228739DBA00EB5A97 /* FirebaseFirestore in Frameworks */,
 				DC8210DE28739DBA00EB5A97 /* FirebaseDatabase in Frameworks */,
 				DC8210E428739DBA00EB5A97 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				DC51E272287604FA00C1800D /* Introspect in Frameworks */,
 				DC8210DC28739DBA00EB5A97 /* FirebaseAuth in Frameworks */,
+				DCA91C3D2876B7D5008F25BE /* FirebaseDatabase in Frameworks */,
 				DC8210E628739DBA00EB5A97 /* FirebaseFirestoreSwift in Frameworks */,
+				DCA91C3B2876B7D5008F25BE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +169,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA91C152876B764008F25BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA91C462876B846008F25BE /* FirebaseDatabaseSwift in Frameworks */,
+				DCA91C442876B843008F25BE /* FirebaseDatabase in Frameworks */,
+				DCA91C422876B83F008F25BE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +225,10 @@
 				DC8210AB28739A5500EB5A97 /* Groceries */,
 				DC8210BC28739A5A00EB5A97 /* GroceriesTests */,
 				DC8210C628739A5A00EB5A97 /* GroceriesUITests */,
+				DCA91C112876B762008F25BE /* WatchGroceries */,
+				DCA91C1C2876B764008F25BE /* WatchGroceries WatchKit Extension */,
 				DC8210AA28739A5500EB5A97 /* Products */,
+				DCA91C402876B83F008F25BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +238,8 @@
 				DC8210A928739A5500EB5A97 /* Groceries.app */,
 				DC8210B928739A5A00EB5A97 /* GroceriesTests.xctest */,
 				DC8210C328739A5A00EB5A97 /* GroceriesUITests.xctest */,
+				DCA91C102876B762008F25BE /* WatchGroceries.app */,
+				DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,8 +247,8 @@
 		DC8210AB28739A5500EB5A97 /* Groceries */ = {
 			isa = PBXGroup;
 			children = (
-				DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */,
 				DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */,
+				DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */,
 				DC8210B028739A5A00EB5A97 /* Assets.xcassets */,
 				DC8210B228739A5A00EB5A97 /* Preview Content */,
 				DC0542592875553B00286169 /* Models */,
@@ -195,6 +284,45 @@
 			path = GroceriesUITests;
 			sourceTree = "<group>";
 		};
+		DCA91C112876B762008F25BE /* WatchGroceries */ = {
+			isa = PBXGroup;
+			children = (
+				DCA91C122876B764008F25BE /* Assets.xcassets */,
+			);
+			path = WatchGroceries;
+			sourceTree = "<group>";
+		};
+		DCA91C1C2876B764008F25BE /* WatchGroceries WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DCA91C1D2876B764008F25BE /* GroceriesApp.swift */,
+				DCA91C1F2876B764008F25BE /* MainWatchView.swift */,
+				DCA91C212876B764008F25BE /* NotificationController.swift */,
+				DCA91C232876B764008F25BE /* NotificationView.swift */,
+				DCA91C252876B764008F25BE /* ComplicationController.swift */,
+				DCA91C272876B766008F25BE /* Assets.xcassets */,
+				DCA91C2C2876B766008F25BE /* Info.plist */,
+				DCA91C2D2876B766008F25BE /* PushNotificationPayload.apns */,
+				DCA91C292876B766008F25BE /* Preview Content */,
+			);
+			path = "WatchGroceries WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		DCA91C292876B766008F25BE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DCA91C2A2876B766008F25BE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DCA91C402876B83F008F25BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,10 +333,12 @@
 				DC8210A528739A5500EB5A97 /* Sources */,
 				DC8210A628739A5500EB5A97 /* Frameworks */,
 				DC8210A728739A5500EB5A97 /* Resources */,
+				DCA91C312876B766008F25BE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DCA91C2F2876B766008F25BE /* PBXTargetDependency */,
 			);
 			name = Groceries;
 			packageProductDependencies = (
@@ -219,6 +349,9 @@
 				DC8210E328739DBA00EB5A97 /* FirebaseFirestoreCombine-Community */,
 				DC8210E528739DBA00EB5A97 /* FirebaseFirestoreSwift */,
 				DC51E271287604FA00C1800D /* Introspect */,
+				DCA91C3A2876B7D5008F25BE /* FirebaseAuth */,
+				DCA91C3C2876B7D5008F25BE /* FirebaseDatabase */,
+				DCA91C3E2876B7D5008F25BE /* FirebaseDatabaseSwift */,
 			);
 			productName = Groceries;
 			productReference = DC8210A928739A5500EB5A97 /* Groceries.app */;
@@ -260,6 +393,45 @@
 			productReference = DC8210C328739A5A00EB5A97 /* GroceriesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DCA91C0F2876B762008F25BE /* WatchGroceries */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA91C382876B766008F25BE /* Build configuration list for PBXNativeTarget "WatchGroceries" */;
+			buildPhases = (
+				DCA91C0E2876B762008F25BE /* Resources */,
+				DCA91C342876B766008F25BE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCA91C1B2876B764008F25BE /* PBXTargetDependency */,
+			);
+			name = WatchGroceries;
+			productName = WatchGroceries;
+			productReference = DCA91C102876B762008F25BE /* WatchGroceries.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DCA91C172876B764008F25BE /* WatchGroceries WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA91C372876B766008F25BE /* Build configuration list for PBXNativeTarget "WatchGroceries WatchKit Extension" */;
+			buildPhases = (
+				DCA91C142876B764008F25BE /* Sources */,
+				DCA91C152876B764008F25BE /* Frameworks */,
+				DCA91C162876B764008F25BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchGroceries WatchKit Extension";
+			packageProductDependencies = (
+				DCA91C412876B83F008F25BE /* FirebaseAuth */,
+				DCA91C432876B843008F25BE /* FirebaseDatabase */,
+				DCA91C452876B846008F25BE /* FirebaseDatabaseSwift */,
+			);
+			productName = "WatchGroceries WatchKit Extension";
+			productReference = DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,6 +453,12 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = DC8210A828739A5500EB5A97;
 					};
+					DCA91C0F2876B762008F25BE = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					DCA91C172876B764008F25BE = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = DC8210A428739A5500EB5A97 /* Build configuration list for PBXProject "Groceries" */;
@@ -295,6 +473,7 @@
 			packageReferences = (
 				DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DC51E270287604FA00C1800D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				DCA91C392876B7D5008F25BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DC8210AA28739A5500EB5A97 /* Products */;
 			projectDirPath = "";
@@ -303,6 +482,8 @@
 				DC8210A828739A5500EB5A97 /* Groceries */,
 				DC8210B828739A5A00EB5A97 /* GroceriesTests */,
 				DC8210C228739A5A00EB5A97 /* GroceriesUITests */,
+				DCA91C0F2876B762008F25BE /* WatchGroceries */,
+				DCA91C172876B764008F25BE /* WatchGroceries WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -331,6 +512,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8210D928739CFB00EB5A97 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA91C0E2876B762008F25BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA91C132876B764008F25BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA91C162876B764008F25BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA91C2B2876B766008F25BE /* Preview Assets.xcassets in Resources */,
+				DCA91C282876B766008F25BE /* Assets.xcassets in Resources */,
+				DCA91C472876B8FD008F25BE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +569,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DCA91C142876B764008F25BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA91C492876B907008F25BE /* FirebaseExtension.swift in Sources */,
+				DCA91C482876B902008F25BE /* ItemModel.swift in Sources */,
+				DCA91C222876B764008F25BE /* NotificationController.swift in Sources */,
+				DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */,
+				DCA91C202876B764008F25BE /* MainWatchView.swift in Sources */,
+				DCA91C262876B764008F25BE /* ComplicationController.swift in Sources */,
+				DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */,
+				DCA91C242876B764008F25BE /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -382,6 +596,16 @@
 			isa = PBXTargetDependency;
 			target = DC8210A828739A5500EB5A97 /* Groceries */;
 			targetProxy = DC8210C428739A5A00EB5A97 /* PBXContainerItemProxy */;
+		};
+		DCA91C1B2876B764008F25BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCA91C172876B764008F25BE /* WatchGroceries WatchKit Extension */;
+			targetProxy = DCA91C1A2876B764008F25BE /* PBXContainerItemProxy */;
+		};
+		DCA91C2F2876B766008F25BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCA91C0F2876B762008F25BE /* WatchGroceries */;
+			targetProxy = DCA91C2E2876B766008F25BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -634,6 +858,120 @@
 			};
 			name = Release;
 		};
+		DCA91C322876B766008F25BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 66AVQK2TF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = WatchGroceries_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchGroceries;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shravanprasanth.Groceries;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shravanprasanth.Groceries.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		DCA91C332876B766008F25BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 66AVQK2TF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = WatchGroceries_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchGroceries;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shravanprasanth.Groceries;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shravanprasanth.Groceries.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		DCA91C352876B766008F25BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchGroceries WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 66AVQK2TF9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchGroceries WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchGroceries WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shravanprasanth.Groceries.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		DCA91C362876B766008F25BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchGroceries WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 66AVQK2TF9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchGroceries WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchGroceries WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shravanprasanth.Groceries.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -673,6 +1011,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		DCA91C372876B766008F25BE /* Build configuration list for PBXNativeTarget "WatchGroceries WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA91C352876B766008F25BE /* Debug */,
+				DCA91C362876B766008F25BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCA91C382876B766008F25BE /* Build configuration list for PBXNativeTarget "WatchGroceries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA91C322876B766008F25BE /* Debug */,
+				DCA91C332876B766008F25BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -685,6 +1041,14 @@
 			};
 		};
 		DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		DCA91C392876B7D5008F25BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -729,6 +1093,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		DCA91C3A2876B7D5008F25BE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DCA91C3C2876B7D5008F25BE /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		DCA91C3E2876B7D5008F25BE /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		DCA91C412876B83F008F25BE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCA91C392876B7D5008F25BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DCA91C432876B843008F25BE /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		DCA91C452876B846008F25BE /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8210DA28739DBA00EB5A97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,9 +8,8 @@
 import Foundation
 import Firebase
 import FirebaseCore
-import FirebaseFirestore
 import FirebaseAuth
-import DeviceCheck
+
 
 class FirebaseExtension {
     func addNewItem(for name: String, amount: Int, container: String, store: String, id: String) {
