@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import Firebase
+import FirebaseAuth
+
 
 @main
 struct GroceriesApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
                 MainWatchView()
             }
         }
-
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

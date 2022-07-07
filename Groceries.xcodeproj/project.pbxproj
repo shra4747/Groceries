@@ -51,6 +51,7 @@
 		DCA91C482876B902008F25BE /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DCA91C492876B907008F25BE /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
+		DCA91C4B2876C027008F25BE /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05425C287555C300286169 /* CheckmarkButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -578,6 +579,7 @@
 				DCA91C222876B764008F25BE /* NotificationController.swift in Sources */,
 				DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */,
 				DCA91C202876B764008F25BE /* MainWatchView.swift in Sources */,
+				DCA91C4B2876C027008F25BE /* CheckmarkButton.swift in Sources */,
 				DCA91C262876B764008F25BE /* ComplicationController.swift in Sources */,
 				DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */,
 				DCA91C242876B764008F25BE /* NotificationView.swift in Sources */,
