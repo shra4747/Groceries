@@ -47,7 +47,13 @@ struct HomeView: View {
                 
             }
             .sheet(isPresented: $addingNewGrocery, content: {
-                AddGroceryView()
+                AddGroceryView(callback: { name, amount, container, store, id in
+                    for (d, r) in viewModel.itemReturnables.enumerated() {
+                        if r.storeName == store {
+                            viewModel.itemReturnables[d].items.append(ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store))
+                        }
+                    }
+                })
             })
             .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Button(action: {

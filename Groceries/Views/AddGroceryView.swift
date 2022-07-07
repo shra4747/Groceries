@@ -9,7 +9,10 @@ import SwiftUI
 import Introspect
 
 struct AddGroceryView: View {
+    let callback: (String, Int, String, String, String) -> ()
     
+    @Environment(\.presentationMode) var presentationMode
+
     @State var groceryName = ""
     @State var groceryAmount = 1
     @State var groceryContainer = ""
@@ -17,14 +20,29 @@ struct AddGroceryView: View {
     @State var storesList: [String] = []
     
     @State var isChoosingStore = false
+    @State var newStore = ""
+    
+    @State var isAddingMultiple = false
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Form {
-                    
                     NavigationLink(groceryStore == "" ? "Choose Store" : groceryStore, isActive: $isChoosingStore) {
                         List {
+                            
+                            HStack {
+                                TextField("Add New Store", text: $newStore).disableAutocorrection(true)
+                                Button(action: {
+                                    FirebaseExtension().add(store: newStore)
+                                    groceryStore = newStore
+                                    newStore = ""
+                                    isChoosingStore = false
+                                }) {
+                                    Text("Add")
+                                }
+                            }
+                            
                             ForEach(storesList, id: \.self) { store in
                                 Button(action: {
                                     groceryStore = store
@@ -33,7 +51,7 @@ struct AddGroceryView: View {
                                     HStack {
                                         Text(store).foregroundColor(.black)
                                         Spacer()
-                                        Image(systemName: "chevron.right")
+                                        Image(systemName: "chevron.left")
                                             .scaleEffect(0.8)
                                             .foregroundColor(Color(.lightGray))
                                     }
@@ -91,25 +109,41 @@ struct AddGroceryView: View {
                             Text("Can")
                         }
                     }.padding(.vertical)
-//
-//                    Form {
-//                        //                    Picker(groceryStore == "" ? "Store" : groceryStore, selection: $storesList) {
-//                        //                        ForEach(storesList, id: \.self) {
-//                        //                            Text($0)
-//                        //                        }
-//                        //                    }
-//                    }
-                    
                 }
-
+                Spacer()
             }.navigationTitle("Add Grocery")
-            
+                .navigationBarItems(
+                    leading: Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        if isAddingMultiple {
+                            Text("Done")
+                        }
+                    },
+            trailing:
+                Button(action: {
+                    let id = UUID().uuidString
+                    if groceryName.isEmpty || groceryStore.isEmpty {
+                        return
+                    }
+                    
+                    
+                    
+                    if isAddingMultiple {
+                        FirebaseExtension().addNewItem(for: groceryName, amount: groceryAmount, container: groceryContainer, store: groceryStore, id: id)
+                    }
+                    else {
+                        FirebaseExtension().addNewItem(for: groceryName, amount: groceryAmount, container: groceryContainer, store: groceryStore, id: id)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                    self.callback(groceryName, groceryAmount, groceryContainer, groceryStore, id)
+                    groceryName = ""
+                    groceryAmount = 1
+                    groceryContainer = ""
+                }) {
+                    Image(systemName: "plus")
+                })
         }
-    }
-}
-
-struct AddGroceryView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddGroceryView()
     }
 }

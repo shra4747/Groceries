@@ -13,17 +13,15 @@ import FirebaseAuth
 import DeviceCheck
 
 class FirebaseExtension {
-    func storeData() {
-        let items: [ItemModel.Item] = [ItemModel.Item(id: UUID().uuidString, name: "Oreos", amount: 1, container: "box", store: "ShopRite"), ItemModel.Item(id: UUID().uuidString, name: "Shredded Cheese", amount: 1, container: "bag", store: "ShopRite"), ItemModel.Item(id: UUID().uuidString, name: "Lettuce", amount: 1, container: "", store: "Farmer's Market"), ItemModel.Item(id: UUID().uuidString, name: "Onions", amount: 1, container: "bag", store: "Farmer's Market")]
-
+    func addNewItem(for name: String, amount: Int, container: String, store: String, id: String) {
+        
+        let item = ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store)
+        
         var ref: DatabaseReference!
 
         ref = Database.database().reference()
 
-        for item in items {
-            print(item)
-            ref.child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
-        }
+        ref.child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
     }
     
     func readData(completion: @escaping ([ItemModel.ItemReturnable]) -> Void) {
