@@ -11,6 +11,7 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     @Published var itemReturnables: [ItemModel.ItemReturnable] = []
     @Published var itemCount = 0
+    @Published var chosenStore: ItemModel.ItemReturnable = ItemModel.ItemReturnable(id: UUID(), storeName: "Choose Store:", items: [])
     
     func loadGroceries() {
         self.itemReturnables = []
@@ -18,10 +19,18 @@ class HomeViewModel: ObservableObject {
         FirebaseExtension().readData { returnables in
             self.itemReturnables = returnables
             self.getItemCount()
-            
             self.sort()
+            
+            for returnable in self.itemReturnables {
+                if returnable.storeName == self.chosenStore.storeName {
+                    self.chosenStore = returnable
+                }
+            }
         }
     }
+    
+    
+    
     
     func sort() {
         self.itemReturnables = self.itemReturnables.sorted(by: { $0.storeName.lowercased() < $1.storeName.lowercased()})
@@ -33,8 +42,8 @@ class HomeViewModel: ObservableObject {
     
     
     func getItemCount() {
-        for store in itemReturnables {
-            itemCount += store.items.count
+        FirebaseExtension().getItemCount { count, _  in
+            self.itemCount = count
         }
     }
     

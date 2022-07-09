@@ -10,12 +10,12 @@ import FirebaseCore
 import Firebase
 import FirebaseAuth
 
-
 @main
 struct GroceriesApp: App {
     
     init() {
         FirebaseApp.configure()
+        refreshComplications()
     }
     
     @SceneBuilder var body: some Scene {

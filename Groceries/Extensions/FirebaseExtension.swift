@@ -9,9 +9,20 @@ import Foundation
 import Firebase
 import FirebaseCore
 import FirebaseAuth
-
+import WatchConnectivity
 
 class FirebaseExtension {
+    
+    func listenForUpdates(completion: @escaping (Bool) -> Void) {
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("stores").observe(DataEventType.value) { _ in
+            completion(true)
+        }
+    }
+    
     func addNewItem(for name: String, amount: Int, container: String, store: String, id: String) {
         
         let item = ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store)
@@ -21,6 +32,36 @@ class FirebaseExtension {
         ref = Database.database().reference()
 
         ref.child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
+    }
+    
+    func getItemCount(completion: @escaping (Int, ItemModel.ItemReturnable) -> Void) {
+        var itemCount = 0
+        var r: ItemModel.ItemReturnable = ItemModel.ItemReturnable(id: UUID(), storeName: "", items: [])
+        var didR = false
+        
+        self.readData { returnables in
+            
+            var store: String
+            if let currentStore = UserDefaults.standard.value(forKey: "store") as? String {
+                store = currentStore
+            }
+            else {
+                store = ""
+            }
+            
+            for item in returnables {
+                itemCount += item.items.count
+                if item.storeName == store {
+                    r = item
+                    didR = true
+                }
+            }
+            
+            if !didR && returnables.count > 0 {
+                r = returnables[0]
+            }
+            completion(itemCount, r)
+        }
     }
     
     func readData(completion: @escaping ([ItemModel.ItemReturnable]) -> Void) {

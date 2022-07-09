@@ -53,6 +53,7 @@
 		DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
 		DCA91C4B2876C027008F25BE /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05425C287555C300286169 /* CheckmarkButton.swift */; };
 		DCA91C4D28772A4E008F25BE /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C4C28772A4E008F25BE /* StoreDetailView.swift */; };
+		DCA91C4F287736EE008F25BE /* ComplicationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C4E287736EE008F25BE /* ComplicationViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		DCA91C2C2876B766008F25BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA91C2D2876B766008F25BE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DCA91C4C28772A4E008F25BE /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
+		DCA91C4E287736EE008F25BE /* ComplicationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 				DCA91C212876B764008F25BE /* NotificationController.swift */,
 				DCA91C232876B764008F25BE /* NotificationView.swift */,
 				DCA91C252876B764008F25BE /* ComplicationController.swift */,
+				DCA91C4E287736EE008F25BE /* ComplicationViews.swift */,
 				DCA91C272876B766008F25BE /* Assets.xcassets */,
 				DCA91C2C2876B766008F25BE /* Info.plist */,
 				DCA91C2D2876B766008F25BE /* PushNotificationPayload.apns */,
@@ -585,6 +588,7 @@
 				DCA91C202876B764008F25BE /* MainWatchView.swift in Sources */,
 				DCA91C4B2876C027008F25BE /* CheckmarkButton.swift in Sources */,
 				DCA91C262876B764008F25BE /* ComplicationController.swift in Sources */,
+				DCA91C4F287736EE008F25BE /* ComplicationViews.swift in Sources */,
 				DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */,
 				DCA91C242876B764008F25BE /* NotificationView.swift in Sources */,
 			);

@@ -74,10 +74,23 @@ struct HomeView: View {
                 }) {
                     Text("Multiple Groceries")
                 }
+                Button(action: {
+                    
+                }) {
+                    Text("Tests")
+                }
             }.scaleEffect(1.8))
         }
         .onAppear {
             viewModel.loadGroceries()
+            DispatchQueue.global().async {
+                FirebaseExtension().listenForUpdates { bool in
+                    if bool {
+                        print("refreshing")
+                        viewModel.loadGroceries()
+                    }
+                }
+            }
         }
     }
 }
