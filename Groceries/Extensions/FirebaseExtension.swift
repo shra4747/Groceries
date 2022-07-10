@@ -95,7 +95,8 @@ class FirebaseExtension {
                 let id = item as! String
                 let name = grocery["name"] as? String ?? ""
                 let amount = grocery["amount"] as? Int ?? 0
-                let container = grocery["container"] as? String ?? ""
+                var container = grocery["container"] as? String ?? ""
+                container = modifyPlural(for: container, itemCount: amount)
                 let store = grocery["store"] as? String ?? ""
                 groceryItems.append(ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store))
             }
@@ -104,6 +105,24 @@ class FirebaseExtension {
             
         }
         return itemReturnable
+    }
+    
+    func modifyPlural(for containerString: String, itemCount: Int) -> String {
+        if itemCount > 1 {
+            // Box, Can, Bag, Singular
+            if containerString == "box" {
+                return "boxes"
+            }
+            else if containerString == "can" {
+                return "cans"
+            }
+            else if containerString == "bag" {
+                return "bags"
+            }
+        }
+        
+        
+        return containerString
     }
     
     func loadStores(completion: @escaping ([String]) -> Void) {
@@ -136,8 +155,6 @@ class FirebaseExtension {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        print("\(grocery.store)")
-        print("\(grocery.id)")
         ref.child("stores").child("\(grocery.store)").child("\(grocery.id)").removeValue { error, _ in
             if error != nil {
                 print(error?.localizedDescription as Any)

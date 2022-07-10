@@ -42,30 +42,3 @@ struct CheckmarkButton: View {
         .tint(Color.black)
     }
 }
-//
-////MARK:- Checkbox View Controller*
-//struct CustomCheckBox: View {
-//    var body: some View {
-//        HStack{
-//            VStack(spacing: 20) {
-//                CheckboxField(
-//                    id: "pizza",
-//                    size: 20,
-//                    textSize: 14,
-//                    callback: checkboxSelected
-//                )
-//                CheckboxField(
-//                    id: "pasta",
-//                    size: 14,
-//                    textSize: 20,
-//                    callback: checkboxSelected
-//                )
-//            }
-//        }
-//        .padding()
-//    }
-//
-//    func checkboxSelected(id: String, isMarked: Bool) {
-//        print("\(id) is marked: \(isMarked)")
-//    }
-//}

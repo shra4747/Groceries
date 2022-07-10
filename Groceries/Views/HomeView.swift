@@ -86,7 +86,6 @@ struct HomeView: View {
             DispatchQueue.global().async {
                 FirebaseExtension().listenForUpdates { bool in
                     if bool {
-                        print("refreshing")
                         viewModel.loadGroceries()
                     }
                 }

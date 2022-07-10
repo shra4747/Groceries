@@ -14,7 +14,7 @@ struct ComplicationViewCircular: View {
     
     var body: some View {
         ZStack {
-            ProgressView(value: Float(itemCount), total: 10.0) {
+            ProgressView(value: 1.0, total: 1.0) {
                 HStack(spacing: 0) {
                     Text("\(itemCount)")
                     Image(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")
@@ -28,7 +28,7 @@ struct ComplicationViewCircular: View {
 struct ComplicationViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CLKComplicationTemplateModularSmallStackImage(line1ImageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: "cart")!), line2TextProvider: CLKTextProvider(format: "\(1) items")).previewContext()
+            CLKComplicationTemplateGraphicRectangularStandardBody(headerImageProvider: nil, headerTextProvider: CLKTextProvider(format: "1 Item"), body1TextProvider: CLKTextProvider(format: " - Walmart\n - ShopRite")).previewContext()
             
             CLKComplicationTemplateModularLargeStandardBody(headerImageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: "cart")!), headerTextProvider: CLKTextProvider(format: "1 Items"), body1TextProvider: CLKTextProvider(format: " - Walmart\n - ShopRite")).previewContext()
         }

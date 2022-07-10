@@ -32,7 +32,7 @@ struct MainWatchView: View {
                             }
                         }
                         Spacer()
-                    }
+                    }.frame(height: 10)
                     Button(action: {
                         DispatchQueue.main.async {
                             viewModel.loadGroceries()
@@ -63,6 +63,22 @@ struct MainWatchView: View {
                             DispatchQueue.main.async {
                                 viewModel.loadGroceries()
                                 refreshComplications()
+                                
+                                
+                                if viewModel.chosenStore.items.count == 0 {
+                                    if viewModel.itemReturnables.count > 0 {
+                                        for item in viewModel.itemReturnables {
+                                            if !item.items.isEmpty && item.storeName != viewModel.chosenStore.storeName {
+                                                viewModel.chosenStore = item
+                                                UserDefaults.standard.setValue("\(item.storeName)", forKey: "store")
+                                                break
+                                            }
+                                        }
+                                        
+                                        viewModel.chosenStore = ItemModel.ItemReturnable(id: UUID(), storeName: "Choose Store:", items: [])
+                                        UserDefaults.standard.setValue("", forKey: "store")
+                                    }
+                                }
                             }
                         }
                     }

@@ -64,7 +64,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        if let template = self.makeTemplate(for: 2, itemReturnable: ItemModel.ItemReturnable(id: UUID(), storeName: "Grocery Store", items: [ItemModel.Item(id: "", name: "Bananas", amount: 1, container: "", store: ""), ItemModel.Item(id: "", name: "Apples", amount: 1, container: "", store: "")]), complication: complication) {
+            handler(template)
+        }
+        else {
+            handler(nil)
+        }
     }
 }
 
@@ -79,26 +84,21 @@ extension ComplicationController {
         case .modularLarge:
             return CLKComplicationTemplateModularLargeStandardBody(headerImageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!), headerTextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .STORE_NUMBER, itemCount: itemCount)), body1TextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEMS_LABEL, itemCount: itemCount)))
         case .utilitarianSmall:
-            return CLKComplicationTemplateGraphicCircularView(
-                ComplicationViewCircular(itemCount: itemCount))
+            return CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEM_NUMBER, itemCount: itemCount)), imageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!))
         case .utilitarianSmallFlat:
-            return CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: "\(itemCount) items Left"), imageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: "cart")!))
+            return CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEM_NUMBER, itemCount: itemCount)), imageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!))
         case .utilitarianLarge:
-            return nil // PASS
+            return CLKComplicationTemplateUtilitarianLargeFlat(textProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .STORE_NUMBER, itemCount: itemCount)), imageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!))
         case .circularSmall:
-            return CLKComplicationTemplateGraphicCircularView(
-                ComplicationViewCircular(itemCount: itemCount))
+            return CLKComplicationTemplateCircularSmallStackImage(line1ImageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!), line2TextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEM_NUMBER, itemCount: itemCount)))
         case .extraLarge:
-            return CLKComplicationTemplateGraphicCircularView(
-                ComplicationViewCircular(itemCount: itemCount))
+            return CLKComplicationTemplateExtraLargeStackImage(line1ImageProvider: CLKImageProvider(onePieceImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!), line2TextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .STORE_NUMBER, itemCount: itemCount)))
         case .graphicCorner:
-            return CLKComplicationTemplateGraphicCircularView(
-                ComplicationViewCircular(itemCount: itemCount))
+            return CLKComplicationTemplateGraphicCornerTextImage(textProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEM_NUMBER, itemCount: itemCount)), imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(systemName: itemCount > 0 ? "cart.badge.plus" : "cart")!))
         case .graphicBezel:
-            return CLKComplicationTemplateGraphicCircularView(
-                ComplicationViewCircular(itemCount: itemCount))
+            return nil
         case .graphicRectangular:
-            return nil // PASS
+            return CLKComplicationTemplateGraphicRectangularStandardBody(headerImageProvider: nil, headerTextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .STORE_NUMBER, itemCount: itemCount)), body1TextProvider: CLKTextProvider(format: returnText(for: itemReturnable, textType: .ITEMS_LABEL, itemCount: itemCount)))
         case .graphicExtraLarge:
             return nil
         @unknown default:
