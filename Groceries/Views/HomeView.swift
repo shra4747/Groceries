@@ -11,8 +11,13 @@ struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
     @State var addingNewGrocery = false
-    
     @State var isAddingMultiple = false
+    @State var settings = false
+    
+    
+    @State var showAlert = false
+    @State var alertTitle = ""
+    @State var alertMessage = ""
     
     var body: some View {
         NavigationView {
@@ -60,24 +65,79 @@ struct HomeView: View {
                     viewModel.sort()
                 }, isAddingMultiple: isAddingMultiple)
             })
+            .sheet(isPresented: $settings, content: {
+                NavigationView {
+                    List {
+                        Button(action: {
+                            if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+                                guard let id = userDefaults.value(forKey: "family_id") as? Int else {
+                                    alertTitle = "Error"
+                                    alertMessage = "You have not joined a family on the iOS App!"
+                                    showAlert.toggle()
+                                    return
+                                }
+                                
+                                WatchConnectivityManager.shared.send(id)
+                                
+                                alertTitle = "Refresh"
+                                alertMessage = "Tap the Refresh Button on the Apple Watch App"
+                                showAlert.toggle()
+                            }
+                            else {
+                                alertTitle = "Error"
+                                alertMessage = "You have not joined a family on the iOS App!"
+                                showAlert.toggle()
+                            }
+                        }) {
+                            Label {
+                                Text("Connect Watch")
+                            } icon:  {
+                                Image(systemName: "applewatch")
+                            }
+                        }.alert(isPresented: $showAlert) {
+                            Alert(title: Text(alertTitle), message: Text(alertMessage))
+                        }
+                        VStack {
+                            Text("App icons created by Freepik - Flaticon")
+                            Link(destination: URL(string: "https://www.flaticon.com/free-icons/harvest")!) {
+                                Text("https://www.flaticon.com/free-icons/harvest")
+                            }
+                        }
+                        Text("Copyright © 2022 - Shravan Prasanth (Balan)")
+                    }.navigationBarTitle("Settings")
+                }
+            })
             .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Menu("+") {
                 Button(action: {
                     isAddingMultiple = false
                     addingNewGrocery.toggle()
                 }) {
-                    Text("Single Grocery")
+                    Label {
+                        Text("Single Groceries")
+                    } icon: {
+                        Image(systemName: "1.circle")
+                    }
                 }
                 Button(action: {
                     isAddingMultiple = true
                     addingNewGrocery.toggle()
                 }) {
-                    Text("Multiple Groceries")
+                    Label {
+                        Text("Multiple Groceries")
+                    } icon: {
+                        Image(systemName: "ellipsis.circle")
+                    }
                 }
                 Button(action: {
-                    
+                    settings.toggle()
                 }) {
-                    Text("Tests")
+                    Label {
+                        Text("Settings")
+                    } icon: {
+                        Image(systemName: "gear")
+                    }
+
                 }
             }.scaleEffect(1.8))
         }
@@ -93,11 +153,7 @@ struct HomeView: View {
         }
     }
 }
-//Button(action: {
-//    addingNewGrocery.toggle()
-//}) {
-//    Text("+").font(.largeTitle)
-//}
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

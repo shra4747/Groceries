@@ -32,7 +32,7 @@ struct GroceriesApp: App {
                 default:
                     VStack {
                         Image(systemName: "iphone").resizable().frame(width: 15, height: 25)
-                        Text("Close and Reopen iOS App or Click 'Connect Watch' in Settings!").multilineTextAlignment(.center)
+                        Text("Close and Reopen iOS App or Click 'Connect Watch' in Settings, then tap 􀅈").multilineTextAlignment(.center)
                         Button(action: {
                             if let family_id = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries")?.value(forKey: "family_id") as? Int {
                                 FirebaseExtension().checkFamily(familyID: family_id) { isFamily in
@@ -46,10 +46,7 @@ struct GroceriesApp: App {
                         }
                     }
                 }
-            }.onAppear {
-                
-                UserDefaults(suiteName: "group.com.shravanprasanth.Groceries")?.setValue(0, forKey: "family_id")
-                
+            }.onAppear {                
                 if let family_id = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries")?.value(forKey: "family_id") as? Int {
                     FirebaseExtension().checkFamily(familyID: family_id) { isFamily in
                         if isFamily {
