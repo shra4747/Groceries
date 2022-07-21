@@ -52,7 +52,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                 handler(nil)
             }
         }
-
+        
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {

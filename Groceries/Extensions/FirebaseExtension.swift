@@ -14,16 +14,38 @@ import WatchConnectivity
 class FirebaseExtension {
     
     func listenForUpdates(completion: @escaping (Bool) -> Void) {
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
+        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
         
-        ref.child("stores").observe(DataEventType.value) { _ in
+        ref.child("families").child("\(familyId)").child("stores").observe(DataEventType.value) { _ in
             completion(true)
         }
     }
     
     func addNewItem(for name: String, amount: Int, container: String, store: String, id: String) {
+        
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
         
         let item = ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store)
         
@@ -31,7 +53,7 @@ class FirebaseExtension {
 
         ref = Database.database().reference()
 
-        ref.child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
+        ref.child("families").child("\(familyId)").child("stores").child(item.store).updateChildValues(["\(item.id)": ["name": item.name, "amount": item.amount, "container": item.container, "store": item.store]])
     }
     
     func getItemCount(completion: @escaping (Int, ItemModel.ItemReturnable) -> Void) {
@@ -65,11 +87,23 @@ class FirebaseExtension {
     }
     
     func readData(completion: @escaping ([ItemModel.ItemReturnable]) -> Void) {
+        
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
+        
         var groceries: [String: Any] = [:]
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("stores").getData(completion: { error, snapshot in
+        ref.child("families").child("\(familyId)").child("stores").getData(completion: { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
@@ -126,10 +160,22 @@ class FirebaseExtension {
     }
     
     func loadStores(completion: @escaping ([String]) -> Void) {
+        
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("storeList").getData(completion: { error, snapshot in
+        ref.child("families").child("\(familyId)").child("storeList").getData(completion: { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
@@ -144,21 +190,75 @@ class FirebaseExtension {
     }
     
     func add(store: String) {
+        
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("storeList").updateChildValues([store: "\(UUID())"])
+        ref.child("families").child("\(familyId)").child("storeList").updateChildValues([store: "\(UUID())"])
     }
     
     
     func delete(this grocery: ItemModel.Item) {
+        
+        var familyId: Int = 0
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return
+            }
+            familyId = FI
+        }
+        else {
+            return
+        }
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("stores").child("\(grocery.store)").child("\(grocery.id)").removeValue { error, _ in
+        ref.child("families").child("\(familyId)").child("stores").child("\(grocery.store)").child("\(grocery.id)").removeValue { error, _ in
             if error != nil {
                 print(error?.localizedDescription as Any)
             }
         }
     }
+    
+    func addFamily(familyName: String, familyID: Int) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("familyList").updateChildValues([familyName: familyID])
+    }
+    
+    func checkFamily(familyID: Int, completion: @escaping (Bool) -> Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("familyList").getData(completion: { error, snapshot in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            let familiesData = (snapshot?.value as? Dictionary ?? [:])
+            
+            for key in familiesData.keys {
+                if (familiesData[key] as? Int ?? 0) == familyID {
+                    completion(true)
+                    return
+                }
+            }
+            completion(false)
+            return
+        })
+    }
+    
 }

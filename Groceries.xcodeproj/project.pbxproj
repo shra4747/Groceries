@@ -31,9 +31,13 @@
 		DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DC8210E928739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DC8210EA28739E2C00EB5A97 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
+		DC83F0162889AE7D002688E9 /* WatchConnectivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83F0152889AE7D002688E9 /* WatchConnectivityExtension.swift */; };
+		DC83F0172889AE88002688E9 /* WatchConnectivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83F0152889AE7D002688E9 /* WatchConnectivityExtension.swift */; };
+		DC94B32B288737010055C4DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC94B32A288737000055C4DA /* GoogleService-Info.plist */; };
+		DC9FF7E6287A964400E1E88B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9FF7E5287A964400E1E88B /* StartView.swift */; };
 		DCA91C132876B764008F25BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA91C122876B764008F25BE /* Assets.xcassets */; };
 		DCA91C192876B764008F25BE /* WatchGroceries WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C1D2876B764008F25BE /* GroceriesApp.swift */; };
+		DCA91C1E2876B764008F25BE /* GroceriesWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C1D2876B764008F25BE /* GroceriesWatchApp.swift */; };
 		DCA91C202876B764008F25BE /* MainWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C1F2876B764008F25BE /* MainWatchView.swift */; };
 		DCA91C222876B764008F25BE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C212876B764008F25BE /* NotificationController.swift */; };
 		DCA91C242876B764008F25BE /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA91C232876B764008F25BE /* NotificationView.swift */; };
@@ -47,7 +51,6 @@
 		DCA91C422876B83F008F25BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C412876B83F008F25BE /* FirebaseAuth */; };
 		DCA91C442876B843008F25BE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C432876B843008F25BE /* FirebaseDatabase */; };
 		DCA91C462876B846008F25BE /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCA91C452876B846008F25BE /* FirebaseDatabaseSwift */; };
-		DCA91C472876B8FD008F25BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */; };
 		DCA91C482876B902008F25BE /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E36352874936E0078F9A3 /* ItemModel.swift */; };
 		DCA91C492876B907008F25BE /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */; };
 		DCA91C4A2876B909008F25BE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3637287502190078F9A3 /* HomeViewModel.swift */; };
@@ -129,10 +132,16 @@
 		DC8210C928739A5A00EB5A97 /* GroceriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtension.swift; sourceTree = "<group>"; };
+		DC83F0152889AE7D002688E9 /* WatchConnectivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityExtension.swift; sourceTree = "<group>"; };
+		DC94B32A288737000055C4DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC9FF7E2287A950800E1E88B /* Groceries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Groceries.entitlements; sourceTree = "<group>"; };
+		DC9FF7E3287A956F00E1E88B /* WatchGroceries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchGroceries.entitlements; sourceTree = "<group>"; };
+		DC9FF7E4287A957A00E1E88B /* WatchGroceries WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchGroceries WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		DC9FF7E5287A964400E1E88B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		DCA91C102876B762008F25BE /* WatchGroceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchGroceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA91C122876B764008F25BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA91C182876B764008F25BE /* WatchGroceries WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchGroceries WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA91C1D2876B764008F25BE /* GroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesApp.swift; sourceTree = "<group>"; };
+		DCA91C1D2876B764008F25BE /* GroceriesWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesWatchApp.swift; sourceTree = "<group>"; };
 		DCA91C1F2876B764008F25BE /* MainWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchView.swift; sourceTree = "<group>"; };
 		DCA91C212876B764008F25BE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		DCA91C232876B764008F25BE /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -194,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				DC8210AE28739A5500EB5A97 /* HomeView.swift */,
+				DC9FF7E5287A964400E1E88B /* StartView.swift */,
 				DC05425C287555C300286169 /* CheckmarkButton.swift */,
 				DC51E26C2875E85400C1800D /* AddGroceryView.swift */,
 			);
@@ -220,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				DC8210E728739E2C00EB5A97 /* FirebaseExtension.swift */,
+				DC83F0152889AE7D002688E9 /* WatchConnectivityExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +263,7 @@
 		DC8210AB28739A5500EB5A97 /* Groceries */ = {
 			isa = PBXGroup;
 			children = (
+				DC9FF7E2287A950800E1E88B /* Groceries.entitlements */,
 				DC8210D628739CFB00EB5A97 /* GoogleService-Info.plist */,
 				DC8210AC28739A5500EB5A97 /* GroceriesApp.swift */,
 				DC8210B028739A5A00EB5A97 /* Assets.xcassets */,
@@ -292,6 +304,7 @@
 		DCA91C112876B762008F25BE /* WatchGroceries */ = {
 			isa = PBXGroup;
 			children = (
+				DC9FF7E3287A956F00E1E88B /* WatchGroceries.entitlements */,
 				DCA91C122876B764008F25BE /* Assets.xcassets */,
 			);
 			path = WatchGroceries;
@@ -300,7 +313,9 @@
 		DCA91C1C2876B764008F25BE /* WatchGroceries WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DCA91C1D2876B764008F25BE /* GroceriesApp.swift */,
+				DC94B32A288737000055C4DA /* GoogleService-Info.plist */,
+				DC9FF7E4287A957A00E1E88B /* WatchGroceries WatchKit Extension.entitlements */,
+				DCA91C1D2876B764008F25BE /* GroceriesWatchApp.swift */,
 				DCA91C1F2876B764008F25BE /* MainWatchView.swift */,
 				DCA91C4C28772A4E008F25BE /* StoreDetailView.swift */,
 				DCA91C212876B764008F25BE /* NotificationController.swift */,
@@ -536,7 +551,7 @@
 			files = (
 				DCA91C2B2876B766008F25BE /* Preview Assets.xcassets in Resources */,
 				DCA91C282876B766008F25BE /* Assets.xcassets in Resources */,
-				DCA91C472876B8FD008F25BE /* GoogleService-Info.plist in Resources */,
+				DC94B32B288737010055C4DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,9 +562,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC83F0162889AE7D002688E9 /* WatchConnectivityExtension.swift in Sources */,
 				DC8210AF28739A5500EB5A97 /* HomeView.swift in Sources */,
 				DC8210E828739E2C00EB5A97 /* FirebaseExtension.swift in Sources */,
 				DC4E36362874936E0078F9A3 /* ItemModel.swift in Sources */,
+				DC9FF7E6287A964400E1E88B /* StartView.swift in Sources */,
 				DC4E3638287502190078F9A3 /* HomeViewModel.swift in Sources */,
 				DC8210AD28739A5500EB5A97 /* GroceriesApp.swift in Sources */,
 				DC51E26D2875E85400C1800D /* AddGroceryView.swift in Sources */,
@@ -580,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC83F0172889AE88002688E9 /* WatchConnectivityExtension.swift in Sources */,
 				DCA91C492876B907008F25BE /* FirebaseExtension.swift in Sources */,
 				DCA91C482876B902008F25BE /* ItemModel.swift in Sources */,
 				DCA91C222876B764008F25BE /* NotificationController.swift in Sources */,
@@ -589,7 +607,7 @@
 				DCA91C4B2876C027008F25BE /* CheckmarkButton.swift in Sources */,
 				DCA91C262876B764008F25BE /* ComplicationController.swift in Sources */,
 				DCA91C4F287736EE008F25BE /* ComplicationViews.swift in Sources */,
-				DCA91C1E2876B764008F25BE /* GroceriesApp.swift in Sources */,
+				DCA91C1E2876B764008F25BE /* GroceriesWatchApp.swift in Sources */,
 				DCA91C242876B764008F25BE /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +757,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Groceries/Groceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Groceries/Preview Content\"";
@@ -768,6 +788,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Groceries/Groceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Groceries/Preview Content\"";
@@ -874,6 +896,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WatchGroceries/WatchGroceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66AVQK2TF9;
@@ -900,6 +923,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WatchGroceries/WatchGroceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66AVQK2TF9;
@@ -924,6 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchGroceries WatchKit Extension/WatchGroceries WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchGroceries WatchKit Extension/Preview Content\"";
@@ -932,8 +957,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchGroceries WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WatchGroceries WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchGroceries_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -955,6 +981,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchGroceries WatchKit Extension/WatchGroceries WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchGroceries WatchKit Extension/Preview Content\"";
@@ -963,8 +990,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchGroceries WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WatchGroceries WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchGroceries_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
