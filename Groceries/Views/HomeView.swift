@@ -13,12 +13,16 @@ struct HomeView: View {
     @State var addingNewGrocery = false
     @State var isAddingMultiple = false
     @State var settings = false
+    @Binding var changeView: AppType
     
     
     @State var showAlert = false
     @State var alertTitle = ""
     @State var alertMessage = ""
     
+    @State var sharingCode = false
+    @State var familyCode = FirebaseExtension().loadFamilyCode()
+    @State var familyName = FirebaseExtension().loadFamilyName()
     var body: some View {
         NavigationView {
             VStack {
@@ -97,12 +101,40 @@ struct HomeView: View {
                         }.alert(isPresented: $showAlert) {
                             Alert(title: Text(alertTitle), message: Text(alertMessage))
                         }
-                        VStack {
+                        
+                        VStack(alignment: .leading) {
                             Text("App icons created by Freepik - Flaticon")
                             Link(destination: URL(string: "https://www.flaticon.com/free-icons/harvest")!) {
                                 Text("https://www.flaticon.com/free-icons/harvest")
                             }
                         }
+                        
+                        Button(action: {
+                            sharingCode.toggle()
+                        }) {
+                            Label {
+                                Text("Share Family Code")
+                            } icon: {
+                                Image(systemName: "square.and.arrow.up")
+                            }
+                        }.sheet(isPresented: $sharingCode) {
+                            ShareSheet(activityItems: ["Join '\(familyName)'! \nFamily Code: \(familyCode) \n\nhttps://google.com"])
+                        }
+
+                        Button(action: {
+                            settings = false
+                            changeView = .NO_ID
+                            UserDefaults(suiteName: "group.com.shravanprasanth.Groceries")?.setValue(nil, forKey: "family_id")
+                            UserDefaults(suiteName: "group.com.shravanprasanth.Groceries")?.setValue(nil, forKey: "family_name")
+
+                        }) {
+                            Label {
+                                Text("Leave Family")
+                            } icon: {
+                                Image(systemName: "person.badge.minus")
+                            }
+                        }
+
                         Text("Copyright © 2022 - Shravan Prasanth (Balan)")
                     }.navigationBarTitle("Settings")
                 }
@@ -154,8 +186,24 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+struct ShareSheet: UIViewControllerRepresentable {
+    typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void
+    
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]? = nil
+    let excludedActivityTypes: [UIActivity.ActivityType]? = nil
+    let callback: Callback? = nil
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(
+            activityItems: activityItems,
+            applicationActivities: applicationActivities)
+        controller.excludedActivityTypes = excludedActivityTypes
+        controller.completionWithItemsHandler = callback
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        // nothing to do here
     }
 }

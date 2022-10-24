@@ -159,6 +159,18 @@ class FirebaseExtension {
         return containerString
     }
     
+    func loadFamilyCode() -> String {
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FI = userDefaults.value(forKey: "family_id") as? Int else {
+                return ""
+            }
+            return "\(FI)"
+        }
+        else {
+            return ""
+        }
+    }
+    
     func loadStores(completion: @escaping ([String]) -> Void) {
         
         var familyId: Int = 0
@@ -261,4 +273,41 @@ class FirebaseExtension {
         })
     }
     
+    func getName(completion: @escaping (String) -> Void) {
+        let fc = FirebaseExtension().loadFamilyCode()
+        let familyCode = Int(fc) ?? 0
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("familyList").getData(completion: { error, snapshot in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                completion("")
+                return
+            }
+            let familiesData = (snapshot?.value as? Dictionary ?? [:])
+            
+            for key in familiesData.keys {
+                if (familiesData[key] as? Int ?? 0) == familyCode {
+                    completion(key as? String ?? "")
+                    return
+                }
+            }
+            completion("")
+            return
+        })
+    }
+    
+    func loadFamilyName() -> String {
+        if let userDefaults = UserDefaults(suiteName: "group.com.shravanprasanth.Groceries") {
+            guard let FN = userDefaults.value(forKey: "family_name") as? String else {
+                return ""
+            }
+            print(FN)
+            return "\(FN)"
+        }
+        else {
+            return ""
+        }
+    }
 }
