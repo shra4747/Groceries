@@ -303,7 +303,7 @@ class FirebaseExtension {
             guard let FN = userDefaults.value(forKey: "family_name") as? String else {
                 return ""
             }
-            print(FN)
+        
             return "\(FN)"
         }
         else {

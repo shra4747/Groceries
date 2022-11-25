@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import Foundation
+
 
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
     @State var addingNewGrocery = false
+    
+    @State var isAddingSingle = false
     @State var isAddingMultiple = false
+    
     @State var settings = false
     @Binding var changeView: AppType
-    
     
     @State var showAlert = false
     @State var alertTitle = ""
@@ -22,7 +26,7 @@ struct HomeView: View {
     
     @State var sharingCode = false
     @State var familyCode = FirebaseExtension().loadFamilyCode()
-    @State var familyName = FirebaseExtension().loadFamilyName()
+    @State var familyName = ""
     var body: some View {
         NavigationView {
             VStack {
@@ -58,17 +62,27 @@ struct HomeView: View {
                 }
                 
             }
-            .sheet(isPresented: $addingNewGrocery, content: {
+            .sheet(isPresented: $isAddingSingle, content: {
                 AddGroceryView(callback: { name, amount, container, store, id in
                     for (d, r) in viewModel.itemReturnables.enumerated() {
                         if r.storeName == store {
                             viewModel.itemReturnables[d].items.append(ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store))
                         }
                     }
-                    isAddingMultiple = false
                     viewModel.sort()
-                }, isAddingMultiple: isAddingMultiple)
+                }, isAddingMultiple: false)
             })
+            .sheet(isPresented: $isAddingMultiple, content: {
+                AddGroceryView(callback: { name, amount, container, store, id in
+                    for (d, r) in viewModel.itemReturnables.enumerated() {
+                        if r.storeName == store {
+                            viewModel.itemReturnables[d].items.append(ItemModel.Item(id: id, name: name, amount: amount, container: container, store: store))
+                        }
+                    }
+                    viewModel.sort()
+                }, isAddingMultiple: true)
+            })
+            
             .sheet(isPresented: $settings, content: {
                 NavigationView {
                     List {
@@ -110,6 +124,10 @@ struct HomeView: View {
                         }
                         
                         Button(action: {
+                            familyCode = FirebaseExtension().loadFamilyCode()
+                            FirebaseExtension().getName { name in
+                                familyName = name
+                            }
                             sharingCode.toggle()
                         }) {
                             Label {
@@ -118,7 +136,7 @@ struct HomeView: View {
                                 Image(systemName: "square.and.arrow.up")
                             }
                         }.sheet(isPresented: $sharingCode) {
-                            ShareSheet(activityItems: ["Join '\(familyName)'! \nFamily Code: \(familyCode) \n\nhttps://google.com"])
+                            ShareSheet(activityItems: ["Join Groceries '\(familyName)' Family Code: \(familyCode) \n\nhttps://google.com"])
                         }
 
                         Button(action: {
@@ -142,8 +160,7 @@ struct HomeView: View {
             .navigationBarTitle("\(viewModel.itemCount) Items")
             .navigationBarItems(trailing: Menu("+") {
                 Button(action: {
-                    isAddingMultiple = false
-                    addingNewGrocery.toggle()
+                    isAddingSingle.toggle()
                 }) {
                     Label {
                         Text("Single Groceries")
@@ -152,8 +169,7 @@ struct HomeView: View {
                     }
                 }
                 Button(action: {
-                    isAddingMultiple = true
-                    addingNewGrocery.toggle()
+                    isAddingMultiple.toggle()
                 }) {
                     Label {
                         Text("Multiple Groceries")

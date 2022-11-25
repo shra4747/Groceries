@@ -22,7 +22,7 @@ struct AddGroceryView: View {
     @State var isChoosingStore = false
     @State var newStore = ""
     
-    @State var isAddingMultiple = false
+    @State var isAddingMultiple: Bool
     
     var body: some View {
         NavigationView {
@@ -111,7 +111,11 @@ struct AddGroceryView: View {
                     }.padding(.vertical)
                 }
                 Spacer()
-            }.navigationTitle("Add Grocery")
+            }
+            .onAppear {
+                print(isAddingMultiple)
+            }
+            .navigationTitle("Add Grocery")
                 .navigationBarItems(
                     leading: Button(action: {
                         presentationMode.wrappedValue.dismiss()

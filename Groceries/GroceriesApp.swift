@@ -40,6 +40,7 @@ struct GroceriesApp: App {
                         }
                         FirebaseExtension().getName { name in
                             userDefaults.setValue(name, forKey: "family_name")
+                            print(name)
                         }
                         appType = .ID_SAVED
                         connectivityManager.send(id)
